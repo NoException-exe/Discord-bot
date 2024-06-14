@@ -1,7 +1,7 @@
 {
   "name": "discord-ts",
   "version": "1.0.0",
-  "main": "dist/src/index.js",
+  "main": "build/index.js",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "start": "node --env-file .env ./build/index.js",
