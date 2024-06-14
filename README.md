@@ -9,7 +9,6 @@
 ---
 
 ### Installation
-
 To get started, follow these steps:
 
 1. **Clone the repository:**
@@ -18,7 +17,7 @@ To get started, follow these steps:
    git clone https://github.com/NoException-exe/Discord-bot
    cd Discord-bot
    ```
-
+   
 2. **Install dependencies:**
 
    ```bash
@@ -42,6 +41,13 @@ To get started, follow these steps:
    ```bash
    npm start
    ```
+---
+
+### Start with Docker Compose
+
+```bash
+docker compose up -d
+```
 
 ---
 
