@@ -8,8 +8,9 @@ datasource db {
 }
 
 model Guild {
-  id      BigInt   @id @default(autoincrement())
-  guildId BigInt @unique
+  id      Int   @id @default(autoincrement())
+  guildOwner Int
+  guildId Int @unique
   name    String
   members Int
 
