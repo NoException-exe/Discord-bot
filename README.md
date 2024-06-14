@@ -38,11 +38,10 @@ To get started, follow these steps:
    DISCORD_TOKEN_BOT=your_discord_bot_token_here
    ```
 
-5. **Migrate Postgresql**
-
-```bash
-  npm run migrate
-```
+5. **Run Migrate:**
+   ```bash
+   npm run migrate
+   ```
 
 6. **Start the bot:**
    ```bash
