@@ -2,3 +2,5 @@
 node_modules
 package-lock.json
 build
+prisma/discord.db
+prisma/discord.db-journal

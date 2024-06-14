@@ -4,7 +4,8 @@
   "main": "build/index.js",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "start": "node --env-file .env ./build/index.js",
+    "migrate": "npx prisma migrate deploy",
+    "start": "node --env-file .env build/index.js",
     "dev": "tsx --env-file .env --watch src/index.ts"
   },
   "keywords": [],

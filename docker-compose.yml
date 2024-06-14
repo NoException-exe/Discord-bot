@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  node:
+    container_name: discord-bot
+    build:
+      context: .
+      dockerfile: DockerFile
+    volumes:
+      - .:/app
+    command: npm start
+    restart: always
