@@ -4,3 +4,4 @@ package-lock.json
 build
 prisma/discord.db
 prisma/discord.db-journal
+postgres-data

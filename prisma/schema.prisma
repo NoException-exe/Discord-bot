@@ -3,19 +3,19 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:./discord.db"
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model Guild {
-  id      Int   @id @default(autoincrement())
+  id         Int    @id @default(autoincrement())
   guildOwner String
-  guildId String @unique
-  name    String
-  members Int
+  guildId    String @unique
+  name       String
+  members    Int
 
   createdAt DateTime @default(now())
-  updateAt DateTime @updatedAt
+  updateAt  DateTime @updatedAt
 
   @@map("guilds")
 }

@@ -1,11 +1,11 @@
-version: '3.8'
+version: '3.9'
 
 services:
   node:
     container_name: discord-bot
     build:
       context: .
-      dockerfile: DockerFile
+      dockerfile: Dockerfile
     volumes:
       - .:/app
     command: npm start
