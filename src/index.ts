@@ -22,7 +22,9 @@ class Bot extends Client implements ExtendedClient {
 const botInstance = new Bot();
 
 //loader classes
-new CommandHandler(botInstance);
+const commandLoader = new CommandHandler(botInstance);
 new EventHandler(botInstance);
 
-botInstance.login(process.env.DISCORD_TOKEN_BOT);
+botInstance.login(process.env.DISCORD_TOKEN_BOT).then(async () => {
+  await commandLoader.registerCommand();
+});

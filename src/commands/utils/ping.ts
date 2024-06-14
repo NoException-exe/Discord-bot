@@ -7,6 +7,9 @@ export default class PingCommand implements ICommand {
     .setDescription("Replies with Pong!");
 
   public async execute(interaction: CommandInteraction) {
-    await interaction.reply("Pong!");
+    await interaction.reply({
+      content: `Pong! ${interaction.client.ws.ping}ms 🏓`,
+      ephemeral: true,
+    });
   }
 }

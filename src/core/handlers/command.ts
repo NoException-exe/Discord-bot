@@ -1,4 +1,4 @@
-import { Collection } from "discord.js";
+import { Collection, REST, Routes } from "discord.js";
 import { pathToFileURL } from "url";
 import { ExtendedClient } from "../client/client";
 import { ICommand } from "../interface/command.interface";
@@ -16,7 +16,7 @@ export class CommandHandler {
     this.loadCommands();
   }
 
-  private async loadCommands() {
+  private async loadCommands(): Promise<void> {
     const foldersPath = path.join(__dirname, "../../commands");
     const commandFolders = fs.readdirSync(foldersPath);
 
@@ -56,5 +56,31 @@ export class CommandHandler {
       typeof command.data.name === "string" &&
       typeof command.execute === "function"
     );
+  }
+
+  public async registerCommand(): Promise<void> {
+    const commandData = this.commands.map((command) => command.data);
+
+    const rest = new REST().setToken(process.env.DISCORD_TOKEN_BOT!);
+
+    if (!this.client.user) {
+      console.error("Could not register commands, client.user is undefined");
+      return;
+    }
+
+    try {
+      console.log(
+        "[REGISTER] Started refreshing global application (/) commands."
+      );
+
+      await rest.put(Routes.applicationCommands(this.client.user.id), {
+        body: commandData,
+      });
+      console.log(
+        '"[REGISTER] Successfully reloaded global application (/) commands.'
+      );
+    } catch (err) {
+      console.error("Error while registering commands:", err);
+    }
   }
 }

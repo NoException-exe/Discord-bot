@@ -13,7 +13,7 @@ export class EventHandler {
     this.loadEvents();
   }
 
-  private async loadEvents() {
+  private async loadEvents(): Promise<void> {
     const eventsPath = path.join(__dirname, "../../events");
     const eventFiles = fs
       .readdirSync(eventsPath)
@@ -48,6 +48,8 @@ export class EventHandler {
   }
 
   private registerEventHandler(handler: IEvent) {
-    this.client.on(handler.name, (...args) => handler.execute(...args));
+    this.client.on(handler.name, (...args) =>
+      handler.execute(...args, this.client)
+    );
   }
 }
