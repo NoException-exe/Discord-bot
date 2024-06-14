@@ -1,4 +1,4 @@
 export interface IEvent {
-  name: string;
-  execute: (...args: any[]) => void;
+  name: string
+  execute: (...args: any[]) => void
 }

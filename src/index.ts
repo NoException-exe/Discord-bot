@@ -1,30 +1,27 @@
-import { Client, Collection, GatewayIntentBits } from "discord.js";
-import { ExtendedClient } from "./core/client/client";
-import { CommandHandler } from "./core/handlers/command";
-import { EventHandler } from "./core/handlers/events";
+import { Client, Collection, GatewayIntentBits } from 'discord.js'
+import { ExtendedClient } from './core/client/client'
+import { CommandHandler } from './core/handlers/command'
+import { EventHandler } from './core/handlers/events'
+import { ICommand } from './core/interface/command.interface'
 
 class Bot extends Client implements ExtendedClient {
-  public commands: Collection<string, any>;
+  public commands: Collection<string, ICommand>
 
   constructor() {
     super({
-      intents: [
-        GatewayIntentBits.Guilds,
-        GatewayIntentBits.GuildMessages,
-        GatewayIntentBits.MessageContent,
-      ],
-    });
+      intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent]
+    })
 
-    this.commands = new Collection();
+    this.commands = new Collection()
   }
 }
 
-const botInstance = new Bot();
+const botInstance = new Bot()
 
 //loader classes
-const commandLoader = new CommandHandler(botInstance);
-new EventHandler(botInstance);
+const commandLoader = new CommandHandler(botInstance)
+new EventHandler(botInstance)
 
 botInstance.login(process.env.DISCORD_TOKEN_BOT).then(async () => {
-  await commandLoader.registerCommand();
-});
+  await commandLoader.registerCommand()
+})

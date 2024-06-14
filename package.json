@@ -10,7 +10,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "---",
   "devDependencies": {
     "@types/node": "^20.14.2",
     "tsx": "^4.15.4",
