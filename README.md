@@ -94,7 +94,7 @@ export default class PingCommand implements ICommand {
 - `/say [message]`: Responds with [message]
 
 ```typescript
-src / commands / fun / say.ts
+//src / commands / fun / say.ts
 
 import { CommandInteraction, PermissionFlagsBits, SlashCommandBuilder } from 'discord.js'
 import { ICommand } from '../../core/interface/command.interface'
