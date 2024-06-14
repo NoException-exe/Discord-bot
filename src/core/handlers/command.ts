@@ -31,7 +31,7 @@ export class CommandHandler {
         const fileUrl = pathToFileURL(filePath).toString();
 
         try {
-          const commandModule = (await import(fileUrl)).default;
+          const { default: commandModule } = (await import(fileUrl)).default;
           const commandHandler = new commandModule(this.client) as ICommand;
 
           if (this.isValidCommand(commandHandler)) {

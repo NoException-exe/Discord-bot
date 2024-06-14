@@ -24,7 +24,7 @@ export class EventHandler {
       const fileUrl = pathToFileURL(filePath).toString();
 
       try {
-        const EventClass = (await import(fileUrl)).default;
+        const { default: EventClass } = (await import(fileUrl)).default;
         const eventHandler = new EventClass(this.client);
 
         if (this.isValidEventHandler(eventHandler)) {
