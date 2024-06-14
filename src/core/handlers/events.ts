@@ -1,6 +1,6 @@
 import { ExtendedClient } from '../client/client'
 import { pathToFileURL } from 'url'
-import { IEvent } from '../interface/event.interface'
+import { IEvent } from '../interface/IEvent'
 
 import fs from 'node:fs'
 import path from 'node:path'

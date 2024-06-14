@@ -9,8 +9,8 @@ datasource db {
 
 model Guild {
   id      Int   @id @default(autoincrement())
-  guildOwner Int
-  guildId Int @unique
+  guildOwner String
+  guildId String @unique
   name    String
   members Int
 

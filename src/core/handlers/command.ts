@@ -1,7 +1,7 @@
-import {Collection, REST, Routes} from 'discord.js'
-import {pathToFileURL} from 'url'
-import {ExtendedClient} from '../client/client'
-import {ICommand} from '../interface/command.interface'
+import { Collection, REST, Routes } from 'discord.js'
+import { pathToFileURL } from 'url'
+import { ExtendedClient } from '../client/client'
+import { ICommand } from '../interface/ICommand'
 
 import fs from 'node:fs'
 import path from 'node:path'
@@ -29,7 +29,7 @@ export class CommandHandler {
         const fileUrl = pathToFileURL(filePath).toString()
 
         try {
-          const {default: commandModule} = (await import(fileUrl)).default
+          const { default: commandModule } = (await import(fileUrl)).default
           const commandHandler = new commandModule(this.client) as ICommand
 
           if (this.isValidCommand(commandHandler)) {

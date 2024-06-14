@@ -1,5 +1,5 @@
 import { CommandInteraction, SlashCommandBuilder } from 'discord.js'
-import { ICommand } from '../../core/interface/command.interface'
+import { ICommand } from '../../core/interface/ICommand'
 
 export default class PingCommand implements ICommand {
   public data: SlashCommandBuilder = new SlashCommandBuilder().setName('ping').setDescription('Replies with Pong!')

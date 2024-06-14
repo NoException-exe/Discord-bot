@@ -1,5 +1,5 @@
 import { CommandInteraction, PermissionFlagsBits, SlashCommandBuilder } from 'discord.js'
-import { ICommand } from '../../core/interface/command.interface'
+import { ICommand } from '../../core/interface/ICommand'
 
 export default class SayCommand implements ICommand {
   public data = new SlashCommandBuilder()

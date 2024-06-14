@@ -2,7 +2,7 @@ import { Client, Collection, GatewayIntentBits } from 'discord.js'
 import { ExtendedClient } from './core/client/client'
 import { CommandHandler } from './core/handlers/command'
 import { EventHandler } from './core/handlers/events'
-import { ICommand } from './core/interface/command.interface'
+import { ICommand } from './core/interface/ICommand'
 
 class Bot extends Client implements ExtendedClient {
   public commands: Collection<string, ICommand>
